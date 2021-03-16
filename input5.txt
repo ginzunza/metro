@@ -1,0 +1,26 @@
+#estación inicial
+E
+#estación final
+K
+#color de tren
+B
+#estaciones blancas
+A,B,C,D,I,K
+#estaciones verdes
+G,E,F
+#estaciones rojas
+H,J
+#ruta común
+A,B,B12
+#bifurcación 1, camino 1
+B12:C,B22
+#bifurcación 1, camino 2
+B12:E,F,K
+#bifurcación 2, camino 1
+B22:D,B32
+#bifurcación 2, camino 2
+B22:J,K
+#bifurcación 3, camino 1
+B32:G,I
+#bifurcación 3, camino 2
+B32:H,I
