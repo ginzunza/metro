@@ -1,7 +1,7 @@
 #estación inicial
-E
+C
 #estación final
-K
+D
 #color de tren
 B
 #estaciones blancas

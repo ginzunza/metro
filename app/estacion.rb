@@ -1,3 +1,4 @@
+require "byebug"
 class Estacion
   def initialize args = {}
     args.each do |key,value|
@@ -5,29 +6,30 @@ class Estacion
     end
   end
 
-  def ruta_optima(estacion_inicial = @estacion_inicial,ruta = @ruta_comun, profundidad = 0)
+  def ruta_optima(ruta = @ruta_comun, profundidad = 0, estaciones = "")
     ruta       = ruta.split ","
-    inicio     = ruta.find_index estacion_inicial
-    estaciones = ""
+    estaciones = estaciones.dup
 
-    ruta[inicio..ruta.length].each_with_index do |r,i|
+    ruta.each do |r|
       unless es_bifurcacion? r
-        estaciones << r if es_estacion?(r) || @color_de_tren == 'B'
+        next unless (estaciones + r).include?(@estacion_inicial)
+        estaciones << r if es_estacion?(r)
       else
         minimo_local = "A"*9999
         @bifurcaciones[r].each do |b|
-          camino = ruta_optima(b[0],b, profundidad + 1)
+          camino = ruta_optima(b, profundidad + 1, estaciones)
+          # byebug
           if camino.length < minimo_local.length && camino.include?(@estacion_final)
             minimo_local = camino 
           end
         end
-        estaciones << minimo_local
+        estaciones = minimo_local
       end
       break if r == @estacion_final
     end
 
     if profundidad == 0
-      return estaciones[estaciones.index(estacion_inicial)..] if estaciones.length < 9999
+      return estaciones if camino_valido? estaciones
       "No hay"
     else
       estaciones
@@ -42,10 +44,14 @@ class Estacion
 
   private
   def es_estacion? estacion
-    [@color_de_tren,"B"].include? @colores_ruta[estacion]
+    @color_de_tren == 'B' || [@color_de_tren,"B"].include?(@colores_ruta[estacion])
   end
   
   def es_bifurcacion? estacion
     estacion.match?(/B\d\d/)
+  end
+
+  def camino_valido? camino
+    camino.length < 9999 && camino.include?(@estacion_inicial) && camino.include?(@estacion_final) 
   end
 end
