@@ -3,34 +3,30 @@ rutas óptimas para redes del metro
 
 ## Ejecución
 ```ruby
-ruby main.rb
+ruby main.rb "inputs/input.txt" "A" "F" "R"
 ```
+* El primer parámetro es la ruta del archivo (inputs/input.txt)
+* El segundo parámetro es la estación inicial (A)
+* El tercer parámetro es la estación de destino (F)
+* El cuarto parámetro es opcional e indica el color del tren (R es rojo). Si no va parámetro, se asume blanco
+
 ## Representación de rutas
 * Cada tipo de dato debe ir en una determinada fila
 * Los comentarios no cuentan como filas
 * Para hacer comentarios se debe anteponer "#"
 * Tipos por filas:
-  * **Fila 1**: estación inicial. Por ejemplo: A. Partiría en la estación de nombre "A"
-  * **Fila 2**: estación de destino. Por ejemplo: F. Significa que debe llegar hasta la estación de nombre "F"
-  * **Fila 3**: color del tren. Puede ser rojo, verde o blanco, los cuales se representan como R, V y B, respectivamente
-  * **Fila 4**: estaciones de color blanco. Deben ir separadas por coma. Por ejemplo: A,B,C,D,E,F
-  * **Fila 5**: estaciones color verde. Deben ir separadas por coma. Por ejemplo: G,I
-  * **Fila 6**: estaciones color rojo. Deben ir separadas por coma. Por ejemplo: H
-  * **Fila 7**: la ruta base. Representa el principio común del camino. Existen estaciones y **bifurcaciones**. Se representan de la siguiente manera: A,B,B12. Lo anterior significa que se tiene la estación A, B y luego una bifurcación:
+  * **Fila 1**: estaciones de color blanco. Deben ir separadas por coma. Por ejemplo: A,B,C,D,E,F
+  * **Fila 2**: estaciones color verde. Deben ir separadas por coma. Por ejemplo: G,I
+  * **Fila 3**: estaciones color rojo. Deben ir separadas por coma. Por ejemplo: H
+  * **Fila 4**: la ruta base. Representa el principio común del camino. Existen estaciones y **bifurcaciones**. Se representan de la siguiente manera: A,B,B12. Lo anterior significa que se tiene la estación A, B y luego una bifurcación:
     * Estaciones: se representan separadas por coma. Por ejemplo: A,B,C
     * Bifurcaciones: se representan, igual que las estaciones, pero tienen la siguiente sintaxis: B<número-de-bifurcación><número-de-caminos>. Por ejemplo: B12 (Primera bifurcación que tiene 2 caminos)
-  * **Fila 8..n**: de aquí hacia adelante van las bifurcaciones en orden, con la sintaxis: B<número-de-bifurcación><número-de-caminos>: ruta. Por ejemplo: B12:D,E,F. Sería lo que representaría un camino para la primera bifurcación.
+  * **Fila 5..n**: de aquí hacia adelante van las bifurcaciones en orden, con la sintaxis: B<número-de-bifurcación><número-de-caminos>: ruta. Por ejemplo: B12:D,E,F. Sería lo que representaría un camino para la primera bifurcación.
 
 ## Archivo de ruta de ejemplo
 ### Ejemplo del enunciado
 ![Image1](images/ejemplo.png)
 ```
-#estación inicial
-A
-#estación final
-F
-#color de tren
-R
 #estaciones blancas
 A,B,C,D,E,F
 #estaciones verdes
@@ -47,12 +43,6 @@ B12:G,H,I,F
 ### Ejemplo con más bifurcaciones
 ![Image2](images/ejemplo2.png)
 ```
-#estación inicial
-A
-#estación final
-J
-#color de tren
-R
 #estaciones blancas
 A,B,D,F,G,J
 #estaciones verdes

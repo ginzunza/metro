@@ -7,7 +7,7 @@ class Estacion
     end
   end
 
-  def ruta_optima(estacion_inicial, estacion_final, color_de_tren = "B", ruta = @ruta_comun, profundidad = 0, estaciones = "")
+  def ruta_optima(estacion_inicial, estacion_final, color_de_tren, ruta = @ruta_comun, profundidad = 0, estaciones = "")
     ruta       = ruta.split ","
     estaciones = estaciones.dup
 
