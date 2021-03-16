@@ -17,9 +17,9 @@ class LectorMetro
     end
 
     {
-      "estacion_inicial" => @estacion_inicial,
-      "estacion_final"   => @estacion_final,
-      "color_de_tren"    => @color_de_tren,
+      # "estacion_inicial" => @estacion_inicial,
+      # "estacion_final"   => @estacion_final,
+      # "color_de_tren"    => @color_de_tren,
       "ruta_comun"       => @ruta_comun,
       "colores_ruta"     => @colores_ruta,
       "bifurcaciones"    => @bifurcaciones
@@ -30,19 +30,19 @@ class LectorMetro
   def asignar_datos linea,index
     linea.chomp!
     case index
+    # when 0
+    #   @estacion_inicial = linea
+    # when 1
+    #   @estacion_final = linea
+    # when 2
+    #   @color_de_tren = linea
     when 0
-      @estacion_inicial = linea
-    when 1
-      @estacion_final = linea
-    when 2
-      @color_de_tren = linea
-    when 3
       linea.split(",").each{|r| @colores_ruta.store(r,"B")}
-    when 4
+    when 1
       linea.split(",").each{|r| @colores_ruta.store(r,"V")}
-    when 5
+    when 2
       linea.split(",").each{|r| @colores_ruta.store(r,"R")}
-    when 6
+    when 3
       @ruta_comun = linea
     else
       key,*value = linea.split(":")

@@ -1,9 +1,3 @@
-#estación inicial
-A
-#estación final
-F
-#color de tren
-R
 #estaciones blancas
 A,B,C,D,E,F
 #estaciones verdes
