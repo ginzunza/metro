@@ -19,9 +19,7 @@ class Estacion
         @bifurcaciones[r].each do |b|
           camino = ruta_optima(b, profundidad + 1, estaciones)
           # byebug
-          if camino.length < minimo_local.length && camino.include?(@estacion_final)
-            minimo_local = camino 
-          end
+          minimo_local = camino  if es_mejor_ruta?(camino,minimo_local)
         end
         estaciones = minimo_local
       end
@@ -53,5 +51,9 @@ class Estacion
 
   def camino_valido? camino
     camino.length < 9999 && camino.include?(@estacion_inicial) && camino.include?(@estacion_final) 
+  end
+
+  def es_mejor_ruta? camino, minimo_local
+    camino.length < minimo_local.length && camino.include?(@estacion_final)
   end
 end
