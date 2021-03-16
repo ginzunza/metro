@@ -1,4 +1,5 @@
 require "byebug"
+
 class Estacion
   def initialize args = {}
     args.each do |key,value|
