@@ -5,11 +5,11 @@ L
 #color de tren
 V
 #estaciones blancas
-A,B,C,D,I,K,L,Y
+A,B,C,D,I,K,Y
 #estaciones verdes
 G,E,Z
 #estaciones rojas
-H,J,F
+H,J,F,L
 #ruta común
 A,B,B12
 #bifurcación 1, camino 1
