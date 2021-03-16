@@ -1,7 +1,7 @@
-require_relative 'estacion'
-require_relative 'lector_metro'
+require_relative 'app/estacion'
+require_relative 'app/lector_metro'
 
-lector   = LectorMetro.new "input5.txt"
+lector   = LectorMetro.new "inputs/input5.txt"
 datos    = lector.leer_archivo
 estacion = Estacion.new datos
 puts datos.to_s
