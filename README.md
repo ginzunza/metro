@@ -22,7 +22,8 @@ ruby main.rb
   * **Fila 8..n**: de aquí hacia adelante van las bifurcaciones en orden, con la sintaxis: B<número-de-bifurcación><número-de-caminos>: ruta. Por ejemplo: B12:D,E,F. Sería lo que representaría un camino para la primera bifurcación.
 
 ## Archivo de ruta de ejemplo
-![Image of Yaktocat](images/ejemplo.png)
+### Ejemplo del enunciado
+![Image1](images/ejemplo.png)
 ```
 #estación inicial
 A
@@ -42,4 +43,30 @@ A,B,C,B12
 B12:D,E,F
 #bifurcación 1, camino 2
 B12:G,H,I,F
+```
+### Ejemplo con más bifurcaciones
+![Image2](images/ejemplo2.png)
+```
+#estación inicial
+A
+#estación final
+J
+#color de tren
+R
+#estaciones blancas
+A,B,D,F,G,J
+#estaciones verdes
+E,I
+#estaciones rojas
+C,H
+#ruta común
+A,B,B12
+#bifurcación 1, camino 1
+B12:C,D,E
+#bifurcación 1, camino 2
+B12:F,G,B22
+#bifurcación 2, camino 1
+B22:H,J
+#bifurcación 2, camino 2
+B22:I,J
 ```
