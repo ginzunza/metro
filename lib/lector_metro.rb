@@ -1,5 +1,5 @@
 class LectorMetro
-  attr_reader :bifurcaciones
+
   def initialize nombre_archivo = ""
     @nombre_archivo = nombre_archivo
     @colores_ruta = {}
@@ -8,8 +8,8 @@ class LectorMetro
 
   def leer_archivo nombre_archivo = @nombre_archivo
     comentarios = 0
-    File.readlines(nombre_archivo).each_with_index do |line,i|
-      unless line.start_with? "#"
+    File.readlines(nombre_archivo,chomp: true).each_with_index do |line,i|
+      if (!line.start_with?("#") && !line.empty?)
         asignar_datos(line,i-comentarios )
       else
         comentarios += 1
@@ -25,7 +25,7 @@ class LectorMetro
 
   private
   def asignar_datos linea,index
-    linea.chomp!
+    linea = limpiar_fila linea
     case index
     when 0
       linea.split(",").each{|r| @colores_ruta.store(r,"B")}
@@ -40,5 +40,9 @@ class LectorMetro
       value += @bifurcaciones[key] if @bifurcaciones.has_key? key
       @bifurcaciones.store(key,value)
     end
+  end
+
+  def limpiar_fila linea
+    linea = linea.gsub(/\s+/,"")
   end
 end
