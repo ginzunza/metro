@@ -1,5 +1,3 @@
-require "byebug"
-
 class Estacion
   def initialize args = {}
     args.each do |key,value|
@@ -19,7 +17,6 @@ class Estacion
         minimo_local = "A"*9999
         @bifurcaciones[r].each do |b|
           camino = ruta_optima(estacion_inicial, estacion_final, color_de_tren, b, profundidad + 1, estaciones)
-          # byebug
           minimo_local = camino  if es_mejor_ruta?(camino,minimo_local,estacion_final)
         end
         estaciones = minimo_local

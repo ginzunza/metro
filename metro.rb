@@ -1,5 +1,5 @@
-require_relative 'app/estacion'
-require_relative 'app/lector_metro'
+require_relative 'lib/estacion'
+require_relative 'lib/lector_metro'
 
 archivo,inicio,fin,color = ARGV
 color  ||= "B"

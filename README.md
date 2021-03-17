@@ -3,7 +3,7 @@ rutas óptimas para redes del metro
 
 ## Ejecución
 ```ruby
-ruby main.rb "inputs/input.txt" "A" "F" "R"
+ruby metro.rb "inputs/input.txt" "A" "F" "R"
 ```
 * El primer parámetro es la ruta del archivo (inputs/input.txt)
 * El segundo parámetro es la estación inicial (A)
