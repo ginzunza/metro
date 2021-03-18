@@ -38,11 +38,7 @@ RSpec.describe LectorMetro do
         end
       end
     end
-
-    context "archivo existente e inválido" do
-      
-    end
-
+    
     context "archivo inexistente" do
       it "gatilla error" do
         expect{@lector.leer_archivo("ruta_inexistente")}.to raise_error(Errno::ENOENT)

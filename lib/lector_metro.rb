@@ -1,5 +1,5 @@
 class LectorMetro
-
+  
   def initialize nombre_archivo = ""
     @nombre_archivo = nombre_archivo
     @colores_ruta = {}

@@ -1,4 +1,5 @@
 class Estacion
+  attr_reader :ruta_comun, :colores_ruta, :bifurcaciones
   def initialize args = {}
     args.each do |key,value|
       instance_variable_set("@#{key}",value)
@@ -47,5 +48,9 @@ class Estacion
 
   def es_mejor_ruta? camino, minimo_local, estacion_final
     camino.length < minimo_local.length && camino.include?(estacion_final)
+  end
+
+  def color_valido? color
+    ["R","V","B"].include? color
   end
 end

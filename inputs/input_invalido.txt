@@ -1,16 +1,2 @@
 #estaciones blancas
-      A,B,C,D,        E,F     
-#estaciones verdes
-G,I
-
-
-
-
-#estaciones rojas
-H        
-#ruta común
-A,B,C,B12
-#bifurcación 1, camino 1
-B12:D,E,F
-#bifurcación 1, camino 2
-B12:G,H,I,F
+ 11111111
