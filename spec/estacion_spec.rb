@@ -48,5 +48,23 @@ RSpec.describe Estacion do
       resultado = @estacion.ruta_optima(inicio, fin, color)
       expect(resultado).to eq "ABCDEF"
     end
+
+    it "la ruta óptima no se puede obtener si el tren es de un color no válido" do
+      inicio,fin,color = ["A","F","L"]
+      resultado = @estacion.ruta_optima(inicio, fin, color)
+      expect(resultado).to eq "Parámetros inválidos"
+    end
+
+    it "la ruta óptima no se puede obtener si la estación inicial no es parte de la ruta" do
+      inicio,fin,color = ["N","F","R"]
+      resultado = @estacion.ruta_optima(inicio, fin, color)
+      expect(resultado).to eq "Parámetros inválidos"
+    end
+
+    it "la ruta óptima no se puede obtener si la estación final no es parte de la ruta" do
+      inicio,fin,color = ["A","M","R"]
+      resultado = @estacion.ruta_optima(inicio, fin, color)
+      expect(resultado).to eq "Parámetros inválidos"
+    end
   end
 end

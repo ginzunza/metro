@@ -7,6 +7,7 @@ class Estacion
   end
 
   def ruta_optima(estacion_inicial, estacion_final, color_de_tren, ruta = @ruta_comun, profundidad = 0, estaciones = "")
+    return "Parámetros inválidos" if profundidad == 0 && !parametros_validos?(estacion_inicial, estacion_final, color_de_tren)
     ruta       = ruta.split ","
     estaciones = estaciones.dup
 
@@ -50,7 +51,8 @@ class Estacion
     camino.length < minimo_local.length && camino.include?(estacion_final)
   end
 
-  def color_valido? color
-    ["R","V","B"].include? color
+  def parametros_validos? estacion_inicial, estacion_final, color_de_tren
+    colores = @colores_ruta.keys
+    ["R","V","B"].include?(color_de_tren) && colores.include?(estacion_inicial) && colores.include?(estacion_final)
   end
 end
